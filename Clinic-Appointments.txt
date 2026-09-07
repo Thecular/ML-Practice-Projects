@@ -2,7 +2,8 @@ Clinic-Appointments(Target Variable: Follow-Up).
 Reason for the target variable: To save time and increase productivity in deciding whether to follow up a patient or not.
 
 Preprocessing Stage.
-Try to impute values in the gender column as much as I can, and drop the rest(optional) or drop the missing rows if it doesn't affects the dataset.✅
+Try to impute values in the gender column as much as I can, and drop the rest(optional) or
+drop the missing rows if it doesn't affects the dataset.✅
 Rename follow_up_required column to follow_up.✅
 Capitalize column heads.✅
 Under gender column, use male or female.✅
