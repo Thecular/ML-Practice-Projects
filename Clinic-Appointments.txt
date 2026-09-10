@@ -15,17 +15,17 @@ Replace values under follow_up column with yes and no.✅
 Feature Engineering Stage.
 1) Features to use:
 	i) Create a column for days between the booking and appointment date.✅
-       ii) Drop the following columns; patient id, patient name, billing amount, currency, and amount.✅
+       ii) Drop the following columns; patient id, patient name, billing amount, currency, and amount.✅Dropped the doctor, doctor frequency and gender column as it will reduced the model quality and has no effect to the target variable from the initial feature screening.✅
 2) Scaling:
 	i) Map the gender, department and follow-up column.✅
-       ii) Encode the doctor column by frequency.✅(Branch at this stage and test out the target variable encoding depending on the iterative answer)
+       ii) Encode the doctor column by frequency.✅(Branch at this stage and test out the target variable encoding depending on the iterative answer; No need for the target encoding)
 
 EDA Stage.
 1) Univariant Analysis:
 	i) Histogram to check the distribution and Boxplot to view outliers.✅
-       ii) Age, amount charge, booking date, appointment date and waiting days has distribution that is to be research on especially amount charge, booking date and waiting days that are positively skewed. 
+       ii) Age, amount charge, booking date, appointment date and waiting days has distribution that is to be research on especially amount charge, booking date and waiting days that are positively skewed.✅ 
 2) Multivariant Analysis:
-	i) Pair-plot and correlation heat-map for relationship between features.
+	i) Pair-plot and correlation heat-map✅ for relationship between features.
 	
 
 Note: In the website stage, write code for conversion to euros.
