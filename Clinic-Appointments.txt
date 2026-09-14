@@ -15,7 +15,7 @@ Replace values under follow_up column with yes and no.✅
 Feature Engineering Stage.
 1) Features to use:
 	i) Create a column for days between the booking and appointment date.✅
-       ii) Drop the following columns; patient id, patient name, billing amount, currency, and amount.✅Dropped the doctor, doctor frequency and gender column as it will reduced the model quality and has no effect to the target variable from the initial feature screening.✅
+       ii) Drop the following columns; patient id, patient name, billing amount, currency, and amount.✅
 2) Scaling:
 	i) Map the gender, department and follow-up column.✅
        ii) Encode the doctor column by frequency.✅(Branch at this stage and test out the target variable encoding depending on the iterative answer; No need for the target encoding)
@@ -25,7 +25,22 @@ EDA Stage.
 	i) Histogram to check the distribution and Boxplot to view outliers.✅
        ii) Age, amount charge, booking date, appointment date and waiting days has distribution that is to be research on especially amount charge, booking date and waiting days that are positively skewed.✅ 
 2) Multivariant Analysis:
-	i) Pair-plot and correlation heat-map✅ for relationship between features.
+	i) Pair-plot and correlation heat-map for relationship between features.✅
+3)Conclusion: 
+        i) There is no linear relationship with the target variable but a little bit among some variables when joined together.
+       ii) Drop the doctor and doctor frequency column as it has no effect to the target variable. Then the booking date as it has high correlation with the waiting days✅
+
+Model Training and Evaluation Stage.
+1) Assign feature and target variable.✅
+2) Assign train, validation and test variables.✅
+3) Select base ML model.✅
+4) Use sklearn to preprocess the dataset accordingly.
+5) Train, predict and evaluate.
+6) Tune(random search), validate(stratified k-fold) and evaluate.
+7) Test, evaluate and plot the algorithm graph.
+8) Select the best as the dataset model.
+9) Save the model using joblib.
+ 
 	
 
 Note: In the website stage, write code for conversion to euros.
