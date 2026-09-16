@@ -33,9 +33,9 @@ EDA Stage.
 Model Training and Evaluation Stage.
 1) Assign feature and target variable.✅
 2) Assign train, validation and test variables.✅
-3) Select base ML model.✅
-4) Use sklearn to preprocess the dataset accordingly.
-5) Train, predict and evaluate.
+3) Select base ML model(logistic regression, decision tree and random forest).✅
+4) Use sklearn to preprocess the dataset accordingly.✅
+5) Train, predict and evaluate(accuracy, confusion matrix and classification report).✅
 6) Tune(random search), validate(stratified k-fold) and evaluate.
 7) Test, evaluate and plot the algorithm graph.
 8) Select the best as the dataset model.
