@@ -36,11 +36,11 @@ Model Training and Evaluation Stage.
 3) Select base ML model(logistic regression, decision tree and random forest).✅
 4) Use sklearn to preprocess the dataset accordingly.✅
 5) Train, predict and evaluate(accuracy, confusion matrix and classification report).✅
-6) Tune(random search), validate(stratified k-fold) and evaluate.
-7) Test, evaluate and plot the algorithm graph.
-8) Select the best as the dataset model.
-9) Save the model using joblib.
- 
-	
+6) Tune(random search), validate(stratified k-fold) and evaluate.✅
+7) Test and plot the algorithm graph.✅
+8) Select the one that address the problem and offers optimized solution as the dataset model, and save using joblib.✅
 
-Note: In the website stage, write code for conversion to euros.
+Deployment Stage.
+1) Blue_print of the model work_flow. 
+2) Model work_flow function.
+2) Build a web app and deploy via streamlit.
