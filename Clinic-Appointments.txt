@@ -41,6 +41,6 @@ Model Training and Evaluation Stage.
 8) Select the one that address the problem and offers optimized solution as the dataset model, and save using joblib.✅
 
 Deployment Stage.
-1) Blue_print of the model work_flow. 
+1) Blue_print of the model work_flow.✅ 
 2) Model work_flow function.
 2) Build a web app and deploy via streamlit.

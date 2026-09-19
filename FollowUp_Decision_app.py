@@ -1,15 +1,55 @@
-"""1] Get new_dataset in form of dictionary of the features used in training the model and convert to dataframe.
-2] Features: Age,Gender,Department,Amount Charge(€),Apointment Date,Booking Date,Waiting Days
-3] Types of currency to input: [GBP(£),USD($),INR(Rs),EUR(€)]
-4] Create a new column for currency conversion to euros with the exchange rate:
-rates = {"GBP":1.1667,"USD": 0.8580,"INR": 0.0090, "EUR": 1.0000}
-5] Create a new column for waiting days, ie difference between appointment date and booking date
-using the format that the waiting days get picked and appointment date is assigned.
-6] Drop the booking date column
-7] Arrange the columns in the order they are feed to the model:[Age,Gender,Department,Amount Charge(€),Apointment Date,Waiting Days]
-8] Use sklearn onehotencode on the dataset: check if it applies the same way as the training dataset and checkout the date.
-Also drop the original department.
-9] Gender: female and male, Department:Cardiology,General,Neurology,Orthopedics
-10] Predict the outcome
-11] If the outcome is yes, add the dataset to a list and make it downloadable
-12] Create an option to clear the list"""
+#Libraries
+import pandas as pd
+from datetime import datetime,timedelta
+import joblib
+
+#Variables
+"""Create a dataset in form of dictionary.
+Features: Age,Gender,Department,Currency([GBP(£):1.1667,USD($):0.8580,INR(Rs):0090,EUR(€):1.0000]),Amount Charge,
+Booking Date,Waiting Days"""
+
+encoder = joblib.load("Hotencoder.pkl")
+model = joblib.load("FollowUp_Decision_Model.pkl")
+attention_list = []
+patient_data= {"Age":25, "Gender":"female", "Department":"General","Currency":"USD($)", "Amount Charge": 3,
+           "Booking Date":"2025-02-25", "Waiting Days":15}
+
+"""This code-block runs once enter button is clicked(Function_Block) 
+Note: range of waiting days is a slider and the factor that selects the appointment day."""
+
+if patient_data["Currency"] == "GBP(£)":
+    patient_data["Amount Charge"] *= 1.1667
+elif patient_data["Currency"] == "USD($)":
+    patient_data["Amount Charge"] *= 0.8580
+elif patient_data["Currency"] == "INR(Rs)":
+    patient_data["Amount Charge"] *= 0.0560
+else:
+    patient_data["Amount Charge"] *= 1.0000
+
+booking_date = datetime.strptime(patient_data["Booking Date"], "%Y-%m-%d")
+appointment_date = booking_date + timedelta(days=patient_data["Waiting Days"])
+
+patient_data["Amount Charge(€)"] = patient_data.pop("Amount Charge")
+patient_data["Appointment Date"] = appointment_date.strftime("%Y-%m-%d")
+patient_data.pop("Currency")
+print(patient_data)
+
+"""Once predict button is clicked this code block runs(Function_Block)
+Convert to dataframe, drop the booking and appointment date column, and arrange the columns in the order 
+they are feed to the model:[Age,Gender,Department,Amount Charge(€),Waiting Days]"""
+patient_df = pd.DataFrame([patient_data])
+patient_df.drop(["Booking Date","Appointment Date"],axis=1,inplace=True)
+order = ["Age","Gender","Department","Amount Charge(€)","Waiting Days"]
+patient_df = patient_df[order]
+
+#Encode and predict
+patient_encoded = encoder.transform(patient_df)
+follow_up = model.predict(patient_encoded)
+
+#If the outcome is yes, add the dataset to a list that's downloadable and also create deletable.
+if follow_up == "yes":
+    print("This patient needs attention.")
+    attention_list.append(patient_data)
+
+""""Print attention list"""
+print(attention_list)
