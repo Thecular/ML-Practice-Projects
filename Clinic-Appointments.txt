@@ -43,4 +43,9 @@ Model Training and Evaluation Stage.
 Deployment Stage.
 1) Blue_print of the model work_flow.✅ 
 2) Model work_flow function.✅
-3) Build a web app and deploy via streamlit.
+3) Build a web app and deploy via streamlit.✅
+
+Maintenance Stage.
+1) Improvement on model quality.
+2) Collection of data and feedback.
+3) Model monitoring and performance. 
